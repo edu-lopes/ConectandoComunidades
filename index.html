@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conectando Comunidades</title>
+    <link rel="icon" href="images/Conectando Coms..png" sizes="32x32" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@350&display=swap"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap");
+
+      body {
+        margin: 0;
+        font-size: 1rem;
+        font-family: "Roboto Slab", serif;
+        background-color: #ffffff; /* Adiciona uma cor de fundo */
+      }
+
+      .container-welcome {
+        display: flex;
+      }
+
+      #welcome {
+        box-sizing: border-box;
+        z-index: 1;
+        display: flex;
+      }
+
+      .image-one-top {
+        object-fit: contain;
+        width: 7.7rem;
+      }
+
+      /*
+      #news-one {
+        display: box;
+        position: relative;
+        color: #fff;
+        font-family: "Roboto", serif;
+        margin-top: -66rem;
+        margin-left: 1.5rem;
+        background-color: #530061;
+        border-radius: 5rem;
+        font-size: 2.3rem;
+        width: 13rem;
+        height: 3rem;
+        text-align: center;
+        padding: 0;
+      }
+
+      #news-two {
+        display: box;
+        position: relative;
+        color: #fff;
+        font-family: "Roboto", serif;
+        margin-top: 34rem;
+        margin-left: 1.5rem;
+        background-color: #530061;
+        border-radius: 5rem;
+        font-size: 2.3rem;
+        width: 20rem;
+        height: 3rem;
+        text-align: center;
+        padding: 0;
+      }
+      #news-trhee {
+        display: box;
+        position: relative;
+        color: #fff;
+        font-family: "Roboto", serif;
+        margin-top: 26.5rem;
+        margin-left: 1.5rem;
+        background-color: #530061;
+        border-radius: 5rem;
+        font-size: 2.3rem;
+        width: 20rem;
+        height: 3rem;
+        text-align: center;
+        padding: 0;
+      }
+      */
+
+      .box-container {
+        width: 35rem;
+        margin-left: 7rem;
+        margin-top: 10rem;
+        bottom: 2rem;
+        border-radius: 1rem;
+        box-sizing: border-box;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        height: 28rem;
+      }
+
+      .fullscreen-bg img {
+        width: 37rem;
+        height: auto;
+        margin-right: -4.6rem;
+        justify-content: center;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .fullscreen-bg:hover img {
+        transform: scale(1.1);
+      }
+
+      .fullscreen-bg:hover .overlay p {
+        opacity: 0;
+      }
+
+      .fullscreen-bg img:hover {
+        transform: scale(1.1);
+      }
+
+      .fullscreen-bg img:not(:hover) {
+        transform: scale(1);
+      }
+
+      header {
+        padding: 1rem; /* Ajuste o padding conforme necessário */
+        overflow: hidden;
+        z-index: 2; /* Adiciona um índice de empilhamento maior para ficar acima da imagem */
+        background-color: #530061;
+        color: #fff;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+
+      #image2 {
+        height: 30.3rem;
+        width: 41rem;
+      }
+
+      #content {
+        margin-top: 1.4rem;
+        height: 5rem;
+      }
+
+      #h2 {
+        font-size: 1.8rem;
+      }
+
+      #quote-container {
+        font-size: 1.2rem;
+        font-family: "Roboto", sans-serif;
+        font-style: italic;
+        text-align: center;
+        overflow: hidden;
+        height: 0.3rem; /* Ajuste para permitir a exibição de frases mais longas */
+        padding: 0; /* Ajusta o padding conforme necessário */
+      }
+
+      #quote-container p {
+        margin: 0;
+        line-height: 1.8rem;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 48%;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.5s ease-out;
+      }
+
+      #quote-container p.active {
+        opacity: 1;
+      }
+
+      .news-description {
+        width: 40%;
+        padding: 1rem;
+        background-color: #0069c0;
+        position: absolute;
+        top: 52%;
+        right: 5%;
+        transform: translateY(-50%);
+        border-radius: 0.5rem;
+      }
+
+      .news-description p {
+        color: #fff;
+        font-size: 1.5rem;
+        margin: 0;
+        background-color: #0069c0;
+      }
+
+      .continuation {
+        width: 40%;
+        padding: 1rem;
+        background-color: #0069c0;
+        position: absolute;
+        top: 73%; /* Ajuste conforme necessário para posicionar abaixo do bloco anterior */
+        right: 5%;
+        transform: translateY(-50%);
+        border-radius: 0.5rem;
+      }
+
+      .continuation p {
+        color: #fff;
+        font-size: 1.5rem;
+        margin: 0;
+        background-color: #0069c0;
+      }
+
+      .next-news-button img {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      .next-news-button {
+        position: absolute;
+        top: 84%; /* Ajuste conforme necessário para posicionar abaixo do bloco "continuation" */
+        left: 88%;
+        cursor: pointer;
+      }
+
+      .projeto {
+        position: relative;
+        color: #fff;
+        font-family: "Roboto", serif;
+        background-color: #530061;
+        border-radius: 5rem;
+        font-size: 2.3rem;
+        text-align: center;
+        width: min-content;
+        padding: 0.5rem 1rem;
+        margin-left: 1.5rem;
+      }
+
+      .news-section-container {
+        display: flex;
+        justify-content: flex-end;
+        width: 80rem;
+        margin-left: 15rem;
+        border-top-left-radius: 5rem;
+        display: flex;
+        color: #fff;
+        font-family: "Roboto", sans-serif;
+        justify-content: space-between;
+        background-color: #530061;
+        text-align: center;
+        border-bottom-left-radius: 5rem;
+        margin-top: 3rem;
+      }
+
+      #news-image {
+        height: 10rem;
+        margin-left: 6rem;
+      }
+
+      .banner {
+        box-sizing: border-box;
+        text-align: center;
+        width: 35rem;
+        margin-right: 8rem;
+        padding: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .second-about {
+        display: flex;
+        flex-direction: row;
+        width: 80rem;
+        margin-right: 15rem;
+        border-top-right-radius: 5rem;
+        display: flex;
+        color: #fff;
+        font-family: "Roboto", sans-serif;
+        justify-content: space-between;
+        background-color: #0069c0;
+        text-align: center;
+        border-bottom-right-radius: 5rem;
+        margin-top: 3rem;
+      }
+
+      #another-image {
+        height: 10rem;
+        margin-right: 6rem;
+      }
+
+      .banner2 {
+        box-sizing: border-box;
+        text-align: center;
+        width: 35rem;
+        margin-left: 8rem;
+        padding: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .three-about {
+        display: flex;
+        justify-content: flex-end;
+        margin-left: 15rem;
+        border-top-left-radius: 5rem;
+        display: flex;
+        color: #fff;
+        font-family: "Roboto", sans-serif;
+        background-color: #530061;
+        text-align: center;
+        border-bottom-left-radius: 5rem;
+        margin-top: 3rem;
+      }
+
+      #three-image {
+        height: 10rem;
+        margin-right: 6rem;
+      }
+
+      .banner3 {
+        box-sizing: border-box;
+        text-align: center;
+        width: 35rem;
+        padding: 1rem;
+        font-size: 1.3rem;
+        margin-right: 8rem;
+      }
+
+      .web-redes {
+        position: relative;
+        color: #fff;
+        font-family: "Roboto", serif;
+        background-color: #f10000;
+        border-radius: 5rem;
+        font-size: 2.3rem;
+        text-align: center;
+        width: 17rem;
+        padding: 0.5rem;
+        margin-left: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .redes-sociais {
+        display: flex;
+        padding: 3rem;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .insta {
+        display: flex;
+        justify-content: center;
+        width: 8rem;
+        height: 8rem;
+      }
+
+      .insta h3 {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        color: #530061;
+      }
+      
+      .insta a {
+        display: flex;
+      }
+
+      .face {
+        display: flex;
+        justify-content: center;
+        width: 6.5rem;
+        height: 6.5rem;
+        margin-left: 27rem;
+        margin-bottom: 0.1rem;
+      }
+
+      .face h3 {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        color: #530061;
+      }
+
+      .face a {
+        display: flex;
+      }
+
+      .twit {
+        display: flex;
+        justify-content: center;
+        width: 8rem;
+        height: 8rem;
+        margin-left: 27rem;
+      }
+
+      .twit h3 {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        color: #530061;
+      }
+
+      .twit a {
+        display: flex;
+      }
+
+      .follow-up {
+        color: #fff;
+        font-family: "Roboto", serif;
+        background-color: #0069c0;
+        font-size: 1rem;
+        text-align: center;
+        margin-top: 1rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0.4rem;
+      }
+    </style>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="container-welcome">
+        <div id="welcome">
+          <img
+            class="image-one-top"
+            src="images/Conectando Coms. (1).png"
+            alt="Conectando Comunidades"
+          />
+        </div>
+        <div id="content">
+          <h2 id="h2">
+            Conectando <br />
+            Comunidades
+          </h2>
+        </div>
+      </div>
+      <div id="quote-container">
+        <p class="active">
+          Eu vos recomendo: usai as riquezas deste mundo<br />
+          para ajudar ao próximo e ganhai amigos, <br />quando aquelas chegarem
+          ao fim, esses amigos<br />
+          vos recebam com alegria nas moradas eternas.<br />
+          - Jesus Cristo
+        </p>
+        <p>
+          Aja antes de falar e, portanto, <br />fale de acordo com os seus
+          atos.<br />
+          - Confúcio
+        </p>
+        <p>
+          A humildade exprime uma das raras certezas de que estou certo:<br />
+          a de que ninguém é superior a ninguém.<br />
+          - Paulo Freire
+        </p>
+        <p>
+          Se você quer transformar o mundo, experimente primeiro promover<br />
+          o seu aperfeiçoamento pessoal e realizar inovações no seu próprio
+          interior.<br />
+          - Dalai Lama
+        </p>
+        <p>
+          Que o teu orgulho e objetivo consistam em por<br />
+          no teu trabalho algo que se assemelhe a um milagre.<br />
+          - Leonardo da Vinci
+        </p>
+        <p>
+          Viver é enfrentar um problema atrás do outro.<br />
+          O modo como você o encara é que faz a diferença.<br />
+          - Benjamin Franklin
+        </p>
+      </div>
+      <ul id="nav">
+        <li><a href="tel:0800-031-8000">SAC</a></li>
+        <li><a href="https://www.paypal.com/br/home">Doações</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </header>
+
+    <section class="news">
+      <div class="news__container-title">
+        <h2 class="news__title">Notícias</h2>
+      </div>
+      <div class="news__container-content">
+        <div class="news__container-img">
+          <div class="news__aspect-image">
+            <img id="current-image" class="news__content-img" src="" />
+            <img
+              id="new-image"
+              class="news__content-img news__content-img-new"
+              src="images/CAMPANHA-DO-AGASALHO-1-2.jpg"
+            />
+          </div>
+        </div>
+        <div>
+          <p id="new-p1" class="news__content-paragraph">
+            Com a chegada do inverno, muitos enfrentam o frio sem ter acesso a
+            um agasalho adequado. É hora de agirmos juntos e fazer a diferença!
+            A Campanha do Agasalho começa a partir do dia 23/01/2023 nesta
+            terça-feira, com o objetivo de arrecadar agasalhos para aqueles que
+            mais precisam.
+          </p>
+          <p id="new-p2" class="news__content-paragraph">
+            Enquanto nos preparamos para enfrentar as baixas temperaturas do
+            inverno, é crucial lembrar daqueles que não têm o conforto de um
+            agasalho adequado. A campanha visa não apenas fornecer calor físico,
+            mas também aquecer os corações daqueles em situação de
+            vulnerabilidade.
+          </p>
+        </div>
+      </div>
+      <div class="news__container-btn">
+        <button
+          id="news-next-btn"
+          class="news__content-btn"
+          onclick="changeNew()"
+        >
+          <img src="images/seta.png" alt="Click" />
+        </button>
+      </div>
+    </section>
+    <section>
+      <div><h2 class="projeto">Projeto</h2></div>
+    </section>
+
+    <section class="news-section-container">
+      <div class="image-about">
+        <img
+          id="news-image"
+          src="images/banner-removebg-preview.png"
+          alt="News Image"
+        />
+      </div>
+
+      <div class="banner">
+        <p>
+          "Nosso projeto de ação solidária busca espalhar compaixão e esperança,
+          unindo comunidades para enfrentar desafios juntos, pois acreditamos
+          que o amor ao próximo é a força motriz capaz de transformar vidas e
+          construir um mundo mais justo."
+        </p>
+      </div>
+    </section>
+
+    <section class="second-about">
+      <div class="banner2">
+        <p>
+          "A ideia é facilitar a comunicação entre as comunidades de forma
+          virtual, compartilhando informações, fornecendo recursos, fortalecendo
+          os laços sociais, facilitar o acesso a serviços básicos e promover
+          eventos de forma tanto presencial quanto virtual."
+        </p>
+      </div>
+
+      <div id="obetivos">
+        <img
+          id="another-image"
+          src="images/banner-removebg-preview.png"
+          alt="News Image"
+        />
+      </div>
+    </section>
+
+    <section class="three-about">
+      <div>
+        <img
+          id="three-image"
+          src="images/banner-removebg-preview.png"
+          alt="News Image"
+        />
+      </div>
+
+      <div class="banner3">
+        <p>
+          "Com isso conseguiremos promover a conectividade social,
+          redirecionando as pessoas para um local onde as mesmas podem dividir
+          suas experiências. Desta maneira não se sentirão isoladas, mas sim,
+          acolhidas por grupos que também dividem situações semelhantes."
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div><h2 class="web-redes">Redes Sociais</h2></div>
+    </section>
+<footer>
+    <section class="redes-sociais">
+      <div class="insta">
+        <a href="https://www.instagram.com/">
+          <img src="images/instagram-logo.png" alt="instagram"/>
+        </a>
+        <h3>Instagram</h3>
+      </div>
+
+      <div class="face">
+        <a href="https://www.facebook.com/">
+          <img src="images/facebook-logo.png" alt="facebook" />
+        </a>
+        <h3>Facebook</h3>
+      </div>
+
+      <div class="twit">
+        <a href="https://twitter.com/">
+        <img src="images/twitter-logo.png" alt="twitter" />
+      </a>
+        <h3>Twitter</h3>
+      </div>
+    </section>
+
+    <section class="follow-up">
+      <h2>Nos siga para continuar conectado!</h2>
+    </section>
+  </footer>
+
+    <script>
+      const quotes = document.querySelectorAll("#quote-container p");
+      let currentQuoteIndex = 0;
+
+      function showNextQuote() {
+        quotes.forEach((quote) => quote.classList.remove("active"));
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+        quotes[currentQuoteIndex].classList.add("active");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Mostra a primeira frase imediatamente
+        quotes[currentQuoteIndex].classList.add("active");
+
+        // Inicia a troca de frases a cada 10 segundos
+        setInterval(showNextQuote, 10000);
+      });
+    </script>
+
+    <script>
+      let currentImageIndex = 1; // Inicialmente, mostramos a primeira imagem
+
+      function showNextNews() {
+        // Alterna entre as imagens
+        const currentImage = document.getElementById(
+          `image${currentImageIndex}`
+        );
+        const nextImageIndex = 3 - currentImageIndex; // Se a atual é 1, a próxima será 2, e vice-versa
+        const nextImage = document.getElementById(`image${nextImageIndex}`);
+
+        // Alterna a visibilidade das imagens
+        currentImage.style.display = "none";
+        nextImage.style.display = "block";
+
+        // Atualiza o índice atual para a próxima vez
+        currentImageIndex = nextImageIndex;
+      }
+    </script>
+    <script>
+      document.body.style.overflowX = "hidden";
+    </script>
+  </body>
+  <script src="index.js"></script>
+</html>
